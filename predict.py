@@ -19,7 +19,7 @@ gpu = False if args.gpu is None else True
 model = model_management.load_model(args.checkpoint)
 probs, predict_classes = model_management.predict(data_management.process_image(args.image_path), model, top_k)
 with open(category_names, 'r') as f:
-    cat_to_name = json.load(f)
+    cat_to_name = json.load(f,strict=False)
 classes = []
 for predict_class in predict_classes:
     classes.append(cat_to_name[predict_class])

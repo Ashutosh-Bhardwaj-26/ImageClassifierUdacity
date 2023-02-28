@@ -58,7 +58,7 @@ def train_network(model, epochs, learning_rate, trainloader, validloader, gpu):
 
             optimizer.zero_grad()
 
-            logps = model.forward(inputs)
+            logps = model(inputs)
             loss = criterion(logps, labels)
             loss.backward()
             optimizer.step()
